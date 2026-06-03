@@ -1,12 +1,19 @@
-import requests
+import os
 from flask import Flask, request, jsonify, make_response
 from flask_cors import CORS
 
 app = Flask(__name__)
-
 CORS(app)
-
-API_KEY = 'AIzaSyCLQpJw5KzKAAXE6vDvCW4OOoC7YB3yTvU'
+@app.route('/')
+def home():
+    return '''
+    <div style="text-align:center; margin-top:10%; font-family:Arial, sans-serif;">
+        <h1 style="color:#007bff;">Aura Scan AI Backend</h1>
+        <p style="font-size:18px; color:#28a745;">● LIVE & RUNNING SECURELY</p>
+        <p style="color:#6c757d;">Cloud Server Status: Active</p>
+    </div>
+    '''
+API_KEY = os.environ.get("GEMINI_API_KEY")
 API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={API_KEY}"
 
 @app.route('/analyze', methods=['POST', 'OPTIONS'])
