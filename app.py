@@ -15,7 +15,7 @@ def home():
     </div>
     '''
 API_KEY = os.environ.get("GEMINI_API_KEY")
-API_URL = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={API_KEY}"
+API_URL = f"https://generativelanguage.googleapis.com/v1alpha/models/gemini-2.5-flash:generateContent?key={API_KEY}"
 
 @app.route('/analyze', methods=['POST', 'OPTIONS'])
 def analyze():
